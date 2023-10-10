@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penjumlahan Bilangan</title>
+  </head>
+  <body>
+    <h1>Penjumlahan Bilangan</h1>
+    <label for="bilangan1">Bilangan pertama:</label>
+    <input type="number" id="bilangan1" name="bilangan1" />
+
+    <label for="bilangan2">Bilangan Kedua:</label>
+    <input type="number" id="bilangan2" name="bilangan2" /><br /><br />
+
+    <button onclick="jumlahkan()">Jumlahkan</button>
+    <button onclick="reset()">Ulang</button>
+
+    <script>
+      function jumlahkan() {
+        var bilangan1 = parseFloat(document.getElementById("bilangan1").value);
+        var bilangan2 = parseFloat(document.getElementById("bilangan2").value);
+
+        if (isNaN(bilangan1)) {
+          bilangan1 = 0;
+        }
+        if (isNaN(bilangan2)) {
+          bilangan2 = 0;
+        }
+
+        var hasil = bilangan1 + bilangan2;
+
+        alert("Hasil penjumlahan: " + hasil);
+      }
+
+      function reset() {
+        document.getElementById("bilangan1").value = "";
+        document.getElementById("bilangan2").value = "";
+      }
+    </script>
+  </body>
+</html>
