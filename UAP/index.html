@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaksi Pembelian Barang</title>
+
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 20px;
+      }
+      th,
+      td {
+        border: 1px solid;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Transaksi Pembelian Barang</h2>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nama Barang</th>
+        <th>Harga</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>10000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>B</td>
+        <td>20000</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>C</td>
+        <td>30000</td>
+      </tr>
+    </table>
+
+    <div>
+      <label for="barangId">ID:</label>
+      <input type="text" id="barangId" />
+      <br />
+      <label for="jumlahBeli">Jumlah Barang:</label>
+      <input type="text" id="jumlahBeli" />
+      <br />
+      <button onclick="hitungTotal()">Proses Transaksi</button>
+    </div>
+
+    <script>
+      function hitungTotal() {
+        var idBarangInput = document.getElementById("barangId");
+        var jumlahBeliInput = document.getElementById("jumlahBeli");
+
+        var idBarang = idBarangInput.value;
+        var jumlahBeli = jumlahBeliInput.value;
+
+        var hargaBarang = 0;
+        switch (idBarang) {
+          case "1":
+            hargaBarang = 10000;
+            break;
+          case "2":
+            hargaBarang = 20000;
+            break;
+          case "3":
+            hargaBarang = 30000;
+            break;
+
+          default:
+            alert("ID barang tidak valid");
+            return;
+        }
+
+        var totalBayar = hargaBarang * jumlahBeli;
+        alert("Total yang harus anda bayar:" + totalBayar);
+
+        var jumlahBayar = prompt(
+          "Masukkan nominal uang yang akan anda bayarkann"
+        );
+        var kembalian = jumlahBayar - totalBayar;
+
+        if (kembalian >= 0) {
+          alert("Kembalian :" + kembalian);
+        } else {
+          alert(
+            "Nominal uang yang anda bayarkan tidak cukup, mohon bayar sesuai dengan total harganya"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
